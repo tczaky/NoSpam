@@ -1,0 +1,20 @@
+<?php
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle('NOSPAM');
+echo $this->doctype();
+echo $this->headLink() ->prependStylesheet($this->baseUrl().'/css/site.css'); //díky prepend budou další styly renderovány až po stylopisu site.css
+?> 
+
+<html>
+    <head>
+        <?php
+        echo $this->headMeta();
+        echo $this->headTitle();
+        ?>
+    </head>
+    <body>
+        <?php echo $this->layout()->content; ?>
+    </body>
+</html>
+
