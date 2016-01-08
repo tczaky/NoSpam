@@ -1,0 +1,73 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 8.1.2016, 14:47:52
+    Author     : T.Czaky
+*/
+ <!-- INDEX -->
+#slider{
+    padding: 40px;
+    background: #292c37;
+}
+
+#about{
+    height: 200px;
+}
+
+.login-form-section{
+    max-width: 360px;
+    background-color: #FFF;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+
+.login-form-action a{
+    margin-top: 5px;
+}
+
+.login-form-section .section-title {
+    background-color: #FFF;
+}
+
+.login-form-section .section-title h3{
+    color: #3498DB;
+}
+
+.login-form-section .textbox-wrap {
+    padding: 15px 0px 20px 0px;
+    border-left: 5px solid transparent;
+    transition: border-left-color 0.5s ease 0s, box-shadow 0.5s ease 0s, background-color 0.5s ease 0s;
+}
+
+.login-form-section .textbox-wrap .input-group {
+    background-color: #FFF;
+    border: 1px solid #E0E0E0;
+}
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+
+.login-form-section .textbox-wrap .input-group .input-group-addon, .login-form-section .textbox-wrap .input-group input, .login-form-section .textbox-wrap .input-group .form-control {
+    border: medium none;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+a.homepage-btn {
+    color: #FFF;
+    background: #449D44 none repeat scroll 0% 0%;
+    padding: 20px 30px;
+    border-radius: 0px;
+    border: 3px solid #FFF;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.row{
+    margin: 0 auto;
+}

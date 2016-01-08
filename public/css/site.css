@@ -9,5 +9,19 @@ and open the template in the editor.
 */
 
 body{
-    background: red;
+    padding: 0;
+    margin: 0;
+    color: white;
 }
+
+footer{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #222222;
+    color: #9DA4AE;
+}
+
+.navbar span{
+    color: red;
+}
+
