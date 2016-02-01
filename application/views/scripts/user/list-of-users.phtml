@@ -1,0 +1,26 @@
+<?php
+$this->title = "Uživatelé";
+$this->headTitle($this->title);
+?> 
+
+<table class="table">
+    <caption>Výpis všech uživatelů</caption>
+    <thead>
+        <tr> 
+            <th>Uživatel</th> 
+            <th>Jméno</th>
+            <th>Příjmení</th>
+            <th>Heslo</th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr class="active">
+            <?php
+            foreach ($this->user as $key => $value) {
+                echo "<td>$value->Email</td> <td>$value->FirstName</td> <td>$value->LastName</td> <td>$value->Password</td>";
+            }
+            ?>   
+    </tbody>
+</table>
+
+

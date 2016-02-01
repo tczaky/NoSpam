@@ -7,7 +7,14 @@ and open the template in the editor.
     Created on : 8.1.2016, 14:47:52
     Author     : T.Czaky
 */
- <!-- INDEX -->
+
+/* 
+    index
+*/
+
+body{
+    color: black;
+}
 #slider{
     padding: 40px;
     background: #292c37;
@@ -70,4 +77,8 @@ a.homepage-btn {
 
 .row{
     margin: 0 auto;
+}
+
+#slider h4{
+    color: white;
 }
