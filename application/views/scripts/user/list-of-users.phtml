@@ -3,23 +3,43 @@ $this->title = "Uživatelé";
 $this->headTitle($this->title);
 ?> 
 
+<p><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'add')) ?>">Přidat nového uživatele</a></p>
 <table class="table">
     <caption>Výpis všech uživatelů</caption>
     <thead>
-        <tr> 
-            <th>Uživatel</th> 
+        <tr>
+            <th>Úroveň přístupu</th>
+            <th>Email</th>
             <th>Jméno</th>
             <th>Příjmení</th>
+            <th>Telefonní číslo</th>
             <th>Heslo</th>
+            <th>Heslo potvrzení</th>
+            <th>Komentář</th>
         </tr>
     </thead>
-    <tbody> 
-        <tr class="active">
-            <?php
-            foreach ($this->user as $key => $value) {
-                echo "<td>$value->Email</td> <td>$value->FirstName</td> <td>$value->LastName</td> <td>$value->Password</td>";
-            }
-            ?>   
+    <?php foreach ($this->user as $key => $value) { ?> 
+        <tbody> 
+            <tr class="active">
+                <?php
+                echo "<td>$value->AccessLevel </td> "
+                . "<td>$value->Email</td> "
+                . "<td>$value->FirstName</td> "
+                . "<td>$value->LastName</td> "
+                . "<td>$value->TelNumber</td> "
+                . "<td>$value->Password</td>"
+                . "<td>$value->ConfirmPassword</td>"
+                . "<td>$value->Comment</td>"
+                ?>
+                <td>
+                    
+        <a href="<?php echo $this->url(array('controller'=>'user',
+            'action'=>'delete', 'id'=>$value->id));?>">Delete</a>
+                    <a href="<?php echo $this->url(array('controller'=>'user',
+            'action'=>'edit', 'id'=>$value->id));?>">Editovat</a>
+                </td>
+<?php } ?> 
+        </tr>
     </tbody>
 </table>
 
