@@ -24,3 +24,7 @@ $application = new Zend_Application(
 );
 $application->bootstrap()
             ->run();
+
+    function d($v, $l=''){
+        Zend_Debug::dump($v, $l);
+    }

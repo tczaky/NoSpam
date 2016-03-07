@@ -9,6 +9,8 @@ class UserController extends Zend_Controller_Action {
     public function indexAction() {
         
     }
+    
+   
 
     public function addAction() { //vytvoření formuláře
         $form = new Application_Form_Register(); //instance (odkaz na form registr.php)

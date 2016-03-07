@@ -11,35 +11,38 @@ $this->headTitle($this->title);
             <a class="btn btn-5 btn-5a icon-start-now homepage-btn" href="#"><span>Vyzkoušet</span></a>
         </div>
         <div class="col-md-4">
-        <div class="login-form-section">
-            <form>
-                <div class="section-title">
-                    <h3>Příhlásit se</h3>
-                </div>
-                <div class="textbox-wrap">
-                    <div class="input-group">
-                        <span class="input-group-addon "><i class="fa fa-user"></i></span>
-                        <input required="required" class="form-control" placeholder="E-mail" type="text">
+            <div class="login-form-section">
+                <form action="" method="post" enctype="application/x-www-form-urlencoded">
+                    <div class="section-title">
+                        <h3>Příhlásit se</h3>
                     </div>
-                </div>
-                <div class="textbox-wrap">
-                    <div class="input-group">
-                        <span class="input-group-addon "><i class="fa fa-lock"></i></span>
-                        <input required="required" class="form-control " placeholder="Heslo" type="password">
+                    <div class="textbox-wrap">
+                        <div class="input-group">
+                            <span class="input-group-addon "><i class="fa fa-user"></i></span>
+                            <?php echo $this->LoginForm->Email ?> 
+                        </div>
                     </div>
-                </div>
-                <div class="login-form-action clearfix">
-                    <a><i class="fa fa-unlock"></i> Zapomněli jste heslo?</a>
-                    <button type="submit" class="btn btn-success pull-right green-btn">Přihlásit<i class="icon-chevron-right"></i></button>
-                </div>
-            </form>
-        </div>   
+                    <div class="textbox-wrap">
+                        <div class="input-group">
+                            <span class="input-group-addon "><i class="fa fa-lock"></i></span>
+                            <?php echo $this->LoginForm->Password ?> 
+                        </div>
+                    </div>
+                    <?php if ($this->errorMessage != ""): ?>  
+                        <p class="error"><?= $this->errorMessage; ?></p>  
+                    <?php endif; ?> 
+                    <div class="login-form-action clearfix">
+                        <a><i class="fa fa-unlock"></i> Zapomněli jste heslo?</a>
+                        <?php echo $this->LoginForm->submit ?>
+                    </div>
+                </form>
+            </div>   
+        </div>
     </div>
-    </div>
-    
-    
+
+
 </section>
 <section id="about">
-<a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'list-of-users')) ?>">Seznam všech uživatelů</a>
+    <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'list-of-users')) ?>">Seznam všech uživatelů</a>
 </section>
 

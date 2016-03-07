@@ -49,7 +49,7 @@ echo $this->HeadScript()
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">Separated link</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>                                                              
                             </ul>
                         </li>
                     </ul>                   
@@ -57,6 +57,13 @@ echo $this->HeadScript()
                 
         </nav>            
         </header>
+     <?php   $auth = Zend_Auth::getInstance();
+    if($auth->hasIdentity()){
+        $user = $auth->getIdentity();
+        echo 'Logged in as ' . $this->escape($user->Email);
+        echo 'Jméno ' . $this->escape($user->FirstName);?>
+        <p><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'logout')) ?>">Odhlasit</a></p>
+   <?php } ?>
              <?php echo $this->layout()->content; ?>
         <footer>
             Footer
