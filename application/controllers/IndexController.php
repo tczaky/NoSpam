@@ -1,12 +1,16 @@
 <?php
 
-class IndexController extends Zend_Controller_Action {
+class IndexController extends Zend_Controller_Action
+{
 
-    public function init() {
+    public function init()
+    {
         /* Initialize action controller here */
     }
 
-    public function indexAction() { //will take care of showing the login form and processing the login process.        
+    public function indexAction()
+    {
+//will take care of showing the login form and processing the login process.
         
         if (Zend_Auth::getInstance()->hasIdentity()) {  //pokud bude v session tak ho preskočí uvodní login
             $this->_redirect('user/list-of-users');
@@ -44,9 +48,18 @@ class IndexController extends Zend_Controller_Action {
         }
     }
 
-    public function logoutAction() {
+    public function logoutAction()
+    {
         Zend_Auth::getInstance()->clearIdentity();
         $this->_redirect('index/index');
     }
 
+    public function addAction()
+    {
+        // action body
+    }
+
+
 }
+
+

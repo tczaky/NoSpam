@@ -1,5 +1,5 @@
 <?php
-$this->title = "Uživatelé";
+$this->title = "Pravidla";
 $this->headTitle($this->title);
 ?> 
 
@@ -18,7 +18,7 @@ $this->headTitle($this->title);
                         $accessLevel = $this->escape($user->AccessLevel);
                         $FirstName = $this->escape($user->FirstName);
                         $lastName = $this->escape($user->LastName);
-                        echo "<span>$accessLevel</span>" . "<h5>$FirstName $lastName </h5>" ;
+                        echo "<span>$accessLevel</span>" . "<h5>$FirstName $lastName </h5>";
 
                         // echo $this->escape($user->FirstName) . ' ' . $this->escape($user->LastName);
                     }
@@ -53,45 +53,37 @@ $this->headTitle($this->title);
 
         </div>
         <div id="content" class="col-md-10">
-            <h1>Výpis všech uživatelů</h1>
+            <h1>Výpis všech pravidel</h1>
             <div class="horizontal-menu">                
                 <ul class="nav navbar-nav">
-                    <li><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'add')) ?>"><i class="fa fa-user-plus fa-lg"></i>Nový uživatel</a></li>                    
+                    <li><a href="<?php echo $this->url(array('controller' => 'RulesBlack', 'action' => 'add')) ?>"><i class="fa fa-user-plus fa-lg"></i>Nové pravidlo</a></li>                    
                 </ul>
             </div>
             <table class="table">
-
                 <thead>
                     <tr>
-                        <th>Úroveň přístupu</th>
-                        <th>Email</th>
-                        <th>Jméno</th>
-                        <th>Příjmení</th>
-                        <th>Telefonní číslo</th>
-                        <th>Heslo</th>
-                        <th>Komentář</th>
+                        <th>Datum</th>
+                        <th>Pravidlo</th>
+                        <th>popis</th>
                     </tr>
                 </thead>
-                <?php foreach ($this->user as $key => $value) { ?> 
+                <?php foreach ($this->rule as $key => $value) { ?> 
                     <tbody> 
                         <tr class="active">
                             <?php
-                            echo "<td>$value->AccessLevel </td> "
-                            . "<td>$value->Email</td> "
-                            . "<td>$value->FirstName</td> "
-                            . "<td>$value->LastName</td> "
-                            . "<td>$value->TelNumber</td> "
-                            . "<td>$value->Password</td>"
-                            . "<td>$value->Comment</td>"
+                            echo "<td>$value->TimeStamp</td> "
+                            . "<td>$value->Name</td> "
+                            . "<td>$value->Description</td> "
+                            
                             ?>
                             <td>
 
                                 <a href="<?php
-                                echo $this->url(array('controller' => 'user',
+                                echo $this->url(array('controller' => 'RulesBlack',
                                     'action' => 'delete', 'id' => $value->id));
                                 ?>">Delete</a>
                                 <a href="<?php
-                                echo $this->url(array('controller' => 'user',
+                                echo $this->url(array('controller' => 'RulesBlack',
                                     'action' => 'edit', 'id' => $value->id));
                                 ?>">Editovat</a>
                             </td>

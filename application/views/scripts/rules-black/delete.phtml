@@ -2,17 +2,14 @@
 $this->title = "Smazání";
 $this->headTitle($this->title);
 ?>
-<p>Opravdu chcete smazat uživatele 
-    <?php echo $this->escape($this->user['FirstName']);?>
-    <?php echo $this->escape($this->user['LastName']); ?>   
-    
+<p>Opravdu chcete smazat pravidlo 
+    <?php echo $this->escape($this->rule['Name']);?>    
 </p> 
 
 <form action="<?php echo $this->url(array('action' => 'delete')); ?>" method="post">
     <div> 
-        <input type="hidden" name="id" value="<?php echo $this->user['id']; ?>" /> 
+        <input type="hidden" name="id" value="<?php echo $this->rule['id']; ?>" /> 
         <input type="submit" name="del" value="Ano" /> 
         <input type="submit" name="del" value="Ne" />
     </div>
 </form>
-
