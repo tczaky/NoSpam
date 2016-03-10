@@ -6,7 +6,8 @@ class IndexController extends Zend_Controller_Action {
         /* Initialize action controller here */
     }
 
-    public function indexAction() { //will take care of showing the login form and processing the login process.
+    public function indexAction() { //will take care of showing the login form and processing the login process.        
+        
         if (Zend_Auth::getInstance()->hasIdentity()) {  //pokud bude v session tak ho preskočí uvodní login
             $this->_redirect('user/list-of-users');
         }

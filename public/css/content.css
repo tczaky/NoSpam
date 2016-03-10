@@ -79,6 +79,122 @@ a.homepage-btn {
     margin: 0 auto;
 }
 
-#slider h4{
+#sidebar{
+    background-color: #495b6c;
+    height: 800px; 
+    display: block;
+    color: #BBCCDD;
+    padding-top: 20px;
+    border: 3px solid #3D4F60;
+    list-style-type: none;
+}
+
+#sidebar a{
+    color: #BBCCDD;
+}
+
+#sidebar span{
+    font-size: medium;
+}
+
+.horizontal-menu{
+    width: 100%;
+    background-color: #EEEEEE;
+    height: 50px;
+    border: 1px solid #E9E9E9;
+    margin: 20px 0 30px 0;
+}
+
+#content h1{
+    color: #616065;
+}
+
+nav navbar-nav i{
+    color: red;
+}
+
+#slider h1{
     color: white;
+}
+
+.user-img i{
+    float: left;
+}
+
+.user-info{
+    float: left;
+    padding-left: 10px;
+}
+
+.user span, .user-img i{
+    padding: 3px;
+    background-color: #FB816F;
+    color: white;
+    border-radius: 3px;
+    border: 1px solid #2C546B;    
+}
+
+#custom-search-input {
+        margin:0;
+        margin-top: 100px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #415160;
+    }
+ 
+    #custom-search-input .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+ 
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+ 
+    #custom-search-input button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        color:#FB816F;
+    }
+ 
+    .search-query:focus + button {
+        z-index: 3;   
+    }
+
+    
+    @media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+    border-bottom: 1px solid #415160; 
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  
+  .sidebar-nav .navbar li a:hover, a:active{
+    background: #415160;
+  }
 }

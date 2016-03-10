@@ -9,11 +9,10 @@ class UserController extends Zend_Controller_Action {
     public function indexAction() {
         
     }
-    
-   
 
     public function addAction() { //vytvoření formuláře
-        $form = new Application_Form_Register(); //instance (odkaz na form registr.php)
+        $form = new Application_Form_Register()
+        ; //instance (odkaz na form registr.php)
         $form->submit->setLabel('Přidat'); //popisek odesílacího tlačítka
         $this->view->RegistrationForm = $form; //předání view
 
@@ -30,6 +29,14 @@ class UserController extends Zend_Controller_Action {
                 $comment = $form->getValue('Comment');
                 $user = new Application_Model_DbTable_User();
                 $user->addUser($accessLevel, $email, $password, $confirmPassword, $fistName, $lastName, $telNumber, $comment);
+
+                $mail = new Zend_Mail('UTF-8');
+                $mail->addTo('t.czaky@gmail.com', 'Tomas Czakan') //prijemnce
+                        ->setFrom('sportevents1@seznam.cz', 'Enwico DATA') //odesilatel
+                        ->setSubject('Potvrzeni registrace')
+                        ->setBodyText($form->getValue('FirstName') . ', děkujeme za Vaši registraci')
+                        ->send();
+
                 $this->_helper->redirector('list-of-users'); //přesměrování na list-of-users
             } else {
                 $form->populate($formData); //Pokud zadaná data nejsou validní, pak jimi naplníme formulář a znovu ho zobrazíme.
@@ -44,7 +51,7 @@ class UserController extends Zend_Controller_Action {
         $this->view->RegistrationForm = $form; //předání view         
 
         if ($this->getRequest()->isPost() && $this->getParam('Email')) { //jestli to není post ale get tak to vykreslí data z databáze
-            $formData = $this->getRequest()->getPost();            
+            $formData = $this->getRequest()->getPost();
             if ($form->isValid($formData)) {
                 $id = $form->getValue('id');
                 $accessLevel = $form->getValue('AccessLevel');
@@ -55,7 +62,7 @@ class UserController extends Zend_Controller_Action {
                 $lastName = $form->getValue('LastName');
                 $telNumber = $form->getValue('TelNumber');
                 $comment = $form->getValue('Comment');
-                
+
                 $user = new Application_Model_DbTable_User();
                 $user->updateUser($id, $accessLevel, $email, $password, $confirmPassword, $fistName, $lastName, $telNumber, $comment);
                 $this->_helper->redirector('list-of-users');
@@ -64,7 +71,7 @@ class UserController extends Zend_Controller_Action {
             $user = new Application_Model_DbTable_User();
             $selecteduser = $this->_getParam('id', 0); // zjištění id
             $data = $user->findPrimaryKey($selecteduser);
-            $form->populate($data->toArray());            
+            $form->populate($data->toArray());
         }
     }
 
