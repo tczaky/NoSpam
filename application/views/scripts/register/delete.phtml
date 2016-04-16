@@ -1,8 +1,7 @@
 <?php
-$this->title = "Osobní informace";
+$this->title = "Smazání";
 $this->headTitle($this->title);
-?> 
-
+?>
 
 <section id="container">
     <div class="row">
@@ -17,12 +16,11 @@ $this->headTitle($this->title);
                     if ($auth->hasIdentity()) {
                         $user = $auth->getIdentity();
                         $accessLevel = $this->escape($user->AccessLevel);
-                        $id = $this->escape($user->id);
-                        echo "<span>$accessLevel</span>";
-                        ?>
-                        <br>
-                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'show', 'id' => $id)); ?>">Můj profil</i></a>
-                        <?php
+                        $email = $this->escape($user->Email);
+                        // $lastName = $this->escape($user->LastName);
+                        echo "<span>$accessLevel</span>" . "<h5>$email </h5>";
+
+                        // echo $this->escape($user->FirstName) . ' ' . $this->escape($user->LastName);
                     }
                     ?>
 <!--                    <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'add')) ?>">Můj profil</a>-->
@@ -55,16 +53,19 @@ $this->headTitle($this->title);
 
         </div>
         <div id="content" class="col-md-10">
-            <div id="circle-container">
-                <div class="circle-active">Obecné</div>
-                <div class="circle-direction"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
-                <div class="circle-passive">Adresa</div>
-            </div><br><br>
-            <h1>Vyplňte osobní informace</h1>
-            <?php
-            echo $this->UserInfoForm;
-            ?> 
-
+            <div class="message-info">
+                <h1><i class="fa fa-trash-o"></i> Smazat</h1>
+                 <p>Opravdu chcete smazat uživatele <?php echo $this->escape($this->user['Email']); ?>?</p> 
+            <form action="<?php echo $this->url(array('action' => 'delete')); ?>" method="post">
+                <div> 
+                    <input type="hidden" name="id" value="<?php echo $this->user['id']; ?>" /> 
+                    <input class="btn btn-danger" type="submit" name="del" value="Ano" /> 
+                    <input  class="btn btn-info" type="submit" name="del" value="Ne" />
+                </div>
+            </form>
+            </div>
+            
+           
         </div>
     </div>
 </section>

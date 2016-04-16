@@ -3,7 +3,6 @@ $this->title = "Osobní informace";
 $this->headTitle($this->title);
 ?> 
 
-
 <section id="container">
     <div class="row">
         <div id="sidebar" class="col-md-2">
@@ -56,15 +55,16 @@ $this->headTitle($this->title);
         </div>
         <div id="content" class="col-md-10">
             <div id="circle-container">
-                <div class="circle-active">Obecné</div>
+                <div class="circle-passive">Obecné</div>
                 <div class="circle-direction"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
-                <div class="circle-passive">Adresa</div>
+                <div class="circle-active">Adresa</div>
             </div><br><br>
-            <h1>Vyplňte osobní informace</h1>
+            <h1>Vyplňte adresu</h1><hr>
             <?php
-            echo $this->UserInfoForm;
+            echo $this->Address;
             ?> 
 
         </div>
     </div>
 </section>
+

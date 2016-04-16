@@ -16,11 +16,12 @@ $this->headTitle($this->title);
                     if ($auth->hasIdentity()) {
                         $user = $auth->getIdentity();
                         $accessLevel = $this->escape($user->AccessLevel);
-                        $FirstName = $this->escape($user->FirstName);
-                        $lastName = $this->escape($user->LastName);
-                        echo "<span>$accessLevel</span>" . "<h5>$FirstName $lastName </h5>" ;
-
-                        // echo $this->escape($user->FirstName) . ' ' . $this->escape($user->LastName);
+                        $id = $this->escape($user->id);
+                        echo "<span>$accessLevel</span>";
+                        ?>
+                    <br>
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'show', 'id' => $id)); ?>">Můj profil</i></a>
+                        <?php
                     }
                     ?>
 <!--                    <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'add')) ?>">Můj profil</a>-->
@@ -42,7 +43,7 @@ $this->headTitle($this->title);
                 <div class="navbar" role="navigation">                    
                     <div class="navbar-collapse collapse sidebar-navbar-collapse">
                         <ul class="nav navbar-nav">
-                            <li><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'list-of-users')) ?>"><i class="fa fa-list"></i> Seznam uživatelů</a></li>
+                            <li><a href="<?php echo $this->url(array('controller' => 'register', 'action' => 'list-of-users')) ?>"><i class="fa fa-list"></i> Seznam uživatelů</a></li>
                             <li><a href="<?php echo $this->url(array('controller' => 'RulesBlack', 'action' => 'list-of-rules')) ?>"><i class="fa fa-cog"></i> Správa pravidel</a></li>
                             <li><a href="#">Menu Item 3</a></li>
                             <li><a href="#">Menu Item 4</a></li>
@@ -56,18 +57,18 @@ $this->headTitle($this->title);
             <h1>Výpis všech uživatelů</h1>
             <div class="horizontal-menu">                
                 <ul class="nav navbar-nav">
-                    <li><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'add')) ?>"><i class="fa fa-user-plus fa-lg"></i>Nový uživatel</a></li>                    
+                    <li><a href="<?php echo $this->url(array('controller' => 'register', 'action' => 'add')) ?>"><i class="fa fa-user-plus fa-lg"></i>Nový uživatel</a></li>                    
                 </ul>
             </div>
-            <table class="table">
+            <table class="table table-hover">
 
                 <thead>
                     <tr>
+                        <th>Datum přidání</th>
+                        <th>Přidal</th>
                         <th>Úroveň přístupu</th>
                         <th>Email</th>
-                        <th>Jméno</th>
-                        <th>Příjmení</th>
-                        <th>Telefonní číslo</th>
+                        <th>Číslo smlouvy</th>
                         <th>Heslo</th>
                         <th>Komentář</th>
                     </tr>
@@ -76,26 +77,18 @@ $this->headTitle($this->title);
                     <tbody> 
                         <tr class="active">
                             <?php
-                            echo "<td>$value->AccessLevel </td> "
+                            echo "<td>$value->DateOfSign </td> "
+                            . "<td>$value->Creator </td> "
+                            . "<td>$value->AccessLevel </td> "
                             . "<td>$value->Email</td> "
-                            . "<td>$value->FirstName</td> "
-                            . "<td>$value->LastName</td> "
-                            . "<td>$value->TelNumber</td> "
-                            . "<td>$value->Password</td>"
+                            . "<td>$value->ContractNumber</td> "
+                            . "<td>$value->Password</td> "
                             . "<td>$value->Comment</td>"
                             ?>
-                            <td>
-
-                                <a href="<?php
-                                echo $this->url(array('controller' => 'user',
-                                    'action' => 'delete', 'id' => $value->id));
-                                ?>">Delete</a>
-                                <a href="<?php
-                                echo $this->url(array('controller' => 'user',
-                                    'action' => 'edit', 'id' => $value->id));
-                                ?>">Editovat</a>
-                            </td>
-                        <?php } ?> 
+                            <td class="delete-btn"><a href="<?php echo $this->url(array('controller' => 'register', 'action' => 'delete', 'id' => $value->id)); ?>"><i class="fa fa-trash"></i></a></td>                            
+                            <td class="edit-btn"><a href="<?php echo $this->url(array('controller' => 'register', 'action' => 'edit', 'id' => $value->id)); ?>"><i class="fa fa-pencil"></i></a></td>
+                            <td class="edit-btn"><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'show', 'id' => $value->id)); ?>"><i class="fa fa-pencil"></i></a></td>
+                                <?php } ?> 
                     </tr>
                 </tbody>
             </table>

@@ -13,7 +13,7 @@ class IndexController extends Zend_Controller_Action
 //will take care of showing the login form and processing the login process.
         
         if (Zend_Auth::getInstance()->hasIdentity()) {  //pokud bude v session tak ho preskočí uvodní login
-            $this->_redirect('user/list-of-users');
+            $this->_redirect('register/list-of-users');
         }
 
         $form = new Application_Form_Login();
@@ -42,7 +42,7 @@ class IndexController extends Zend_Controller_Action
                 $storage->write(
                         $adapter->getResultRowObject(null, array('Password')) //vraci vsechno krome hesla
                 );
-                $this->_redirect('user/list-of-users');
+                $this->_redirect('register/list-of-users');
                 // $this->_helper->FlashMessenger('Successful Login'); //proč nefunguje?????
             }$this->view->errorMessage = $errorMessage;
         }
@@ -54,12 +54,14 @@ class IndexController extends Zend_Controller_Action
         $this->_redirect('index/index');
     }
 
-    public function addAction()
+    public function editAction()
     {
         // action body
     }
 
 
 }
+
+
 
 

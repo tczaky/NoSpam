@@ -1,7 +1,8 @@
 <?php
-$this->title = "Editace";
+$this->title = "Osobní informace";
 $this->headTitle($this->title);
 ?> 
+
 <section id="container">
     <div class="row">
         <div id="sidebar" class="col-md-2">
@@ -51,12 +52,14 @@ $this->headTitle($this->title);
 
             </div>
             <div id="content" class="col-md-10">
-                <h1><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'show', 'id' => $id)) ?>"><i class="fa fa-arrow-circle-o-left"></i></a> Editace</h1><hr>            <?php
-                        echo $this->UserInfoForm;
-                        ?>
+                <h1><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'show', 'id' => $id)) ?>"><i class="fa fa-arrow-circle-o-left"></i></a> Editace</h1><hr>
+                        <?php
+                        echo $this->Address;
+                        ?> 
                         <?php
                     }
                     ?>
         </div>
     </div>
 </section>
+

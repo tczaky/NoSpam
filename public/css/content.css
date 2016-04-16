@@ -13,7 +13,11 @@ and open the template in the editor.
 */
 
 body{
-    color: black;
+    color: #333333;      
+    margin:0; 
+    padding:0;   
+    font-weight: 100;
+
 }
 #slider{
     padding: 40px;
@@ -77,6 +81,7 @@ a.homepage-btn {
 
 .row{
     margin: 0 auto;
+
 }
 
 #sidebar{
@@ -104,6 +109,8 @@ a.homepage-btn {
     border: 1px solid #E9E9E9;
     margin: 20px 0 30px 0;
 }
+
+
 
 #content h1{
     color: #616065;
@@ -135,66 +142,143 @@ nav navbar-nav i{
 }
 
 #custom-search-input {
-        margin:0;
-        margin-top: 100px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid #415160;
+    margin:0;
+    margin-top: 100px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #415160;
+}
+
+#custom-search-input .search-query {
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color:#FB816F;
+}
+
+.search-query:focus + button {
+    z-index: 3;   
+}
+
+
+@media (min-width: 768px) {
+    .sidebar-nav .navbar .navbar-collapse {
+        padding: 0;
+        max-height: none;
     }
- 
-    #custom-search-input .search-query {
-        padding-right: 3px;
-        padding-right: 4px \9;
-        padding-left: 3px;
-        padding-left: 4px \9;
-        /* IE7-8 doesn't have border-radius, so don't indent the padding */
- 
-        margin-bottom: 0;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
+    .sidebar-nav .navbar ul {
+        float: none;
+        display: block;
     }
- 
-    #custom-search-input button {
-        border: 0;
-        background: none;
-        /** belows styles are working good */
-        padding: 2px 5px;
-        margin-top: 2px;
-        position: relative;
-        left: -28px;
-        /* IE7-8 doesn't have border-radius, so don't indent the padding */
-        margin-bottom: 0;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-        color:#FB816F;
+    .sidebar-nav .navbar li {
+        float: none;
+        display: block;
+        border-bottom: 1px solid #415160; 
     }
- 
-    .search-query:focus + button {
-        z-index: 3;   
+    .sidebar-nav .navbar li a {
+        padding-top: 12px;
+        padding-bottom: 12px;
     }
 
-    
-    @media (min-width: 768px) {
-  .sidebar-nav .navbar .navbar-collapse {
-    padding: 0;
-    max-height: none;
-  }
-  .sidebar-nav .navbar ul {
-    float: none;
-    display: block;
-  }
-  .sidebar-nav .navbar li {
-    float: none;
-    display: block;
-    border-bottom: 1px solid #415160; 
-  }
-  .sidebar-nav .navbar li a {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-  
-  .sidebar-nav .navbar li a:hover, a:active{
-    background: #415160;
-  }
+    .sidebar-nav .navbar li a:hover, a:active{
+        background: #415160;
+    }
+}
+
+.message-info{
+    background-color: #F1F4F7;
+    padding: 1px 20px 20px 20px;
+    margin: 10px 0 18px 0;
+}
+
+.message-info h3{
+    color: #FB816F;
+    margin-bottom: 20px;
+}
+
+.message-info h1{
+    color: #E03A3A !important;
+}
+
+.fa-trash{
+    background: #E03A3A !important;
+    padding: 5px;
+    color: white;
+    border-radius: 2px;
+}
+
+.fa-pencil{
+    background: #3E8ACC!important;
+    padding: 5px;
+    color: white;
+    border-radius: 2px;
+}
+
+label {
+    margin-top: 15px;
+}
+
+input, select{
+    max-width: 260px;
+}
+
+textArea{
+    max-width: 500px;
+}
+
+.circle-active{
+    width:50px;
+    height:50px;
+    border-radius:50%;    
+    color:#fff;
+    line-height:50px;
+    text-align:center;
+    background: #FB816F;
+    float: left;   
+}
+
+.circle-passive{
+    width:50px;
+    height:50px;
+    border-radius:50%;    
+    color: #333333;
+    line-height:50px;
+    text-align:center;
+    background: #EEEEEE;
+   float: left;
+   
+}
+.circle-direction{
+    float: left;
+    width:50px;
+    height:50px;
+    line-height:50px;
+    text-align:center;
+}
+
+#circle-container{
+    width: 100%;
+    clear: both;
+    margin: 30px 0 40px 0;
 }

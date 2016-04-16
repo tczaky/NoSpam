@@ -1,5 +1,5 @@
 <?php
-$this->title = "Osobní informace";
+$this->title = "Registrace";
 $this->headTitle($this->title);
 ?> 
 
@@ -17,12 +17,11 @@ $this->headTitle($this->title);
                     if ($auth->hasIdentity()) {
                         $user = $auth->getIdentity();
                         $accessLevel = $this->escape($user->AccessLevel);
-                        $id = $this->escape($user->id);
-                        echo "<span>$accessLevel</span>";
-                        ?>
-                        <br>
-                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'show', 'id' => $id)); ?>">Můj profil</i></a>
-                        <?php
+                        $email = $this->escape($user->Email);
+                        // $lastName = $this->escape($user->LastName);
+                        echo "<span>$accessLevel</span>" . "<h5>$email </h5>";
+
+                        // echo $this->escape($user->FirstName) . ' ' . $this->escape($user->LastName);
                     }
                     ?>
 <!--                    <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'add')) ?>">Můj profil</a>-->
@@ -55,16 +54,14 @@ $this->headTitle($this->title);
 
         </div>
         <div id="content" class="col-md-10">
-            <div id="circle-container">
-                <div class="circle-active">Obecné</div>
-                <div class="circle-direction"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
-                <div class="circle-passive">Adresa</div>
-            </div><br><br>
-            <h1>Vyplňte osobní informace</h1>
-            <?php
-            echo $this->UserInfoForm;
-            ?> 
 
+            <h1><a href="<?php echo $this->url(array('controller' => 'register', 'action' => 'list-of-users')) ?>"><i class="fa fa-arrow-circle-o-left"></i></a> Registrace</h1>
+
+            <?php echo $this->RegisterForm; ?>
         </div>
     </div>
 </section>
+
+
+
+
